@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">resume</string>
+    <string name="mail">Email</string>
+    <string name="mdp">mot de passe</string>
+    <string name="connexion">Connexion</string>
+    <string name="inscription"><u>Inscription</u></string>
+    <string name="mdpOublier"><u>Mdp oublié</u></string>
+    <string name="bienvenu">BIENVENUE</string>
+    <string name="ou">ou</string>
+    <string name="name">Name</string>
+</resources>
