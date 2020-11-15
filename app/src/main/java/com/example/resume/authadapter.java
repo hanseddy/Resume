@@ -3,6 +3,7 @@ package com.example.resume;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -16,6 +17,7 @@ public class authadapter extends FragmentPagerAdapter  {
     int m_TotalTabs;
     CharSequence m_mail;
     CharSequence m_mdp;
+    private String[] tabTitles = new String[]{"Login", "Sign In"};
     public authadapter(@NonNull FragmentManager fm,Context context, int totalTabs) {
         super(fm);
         this.m_context=context;
@@ -41,6 +43,12 @@ public class authadapter extends FragmentPagerAdapter  {
     @Override
     public int getCount() {
         return m_TotalTabs;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabTitles[position];
     }
 
     /*@Override

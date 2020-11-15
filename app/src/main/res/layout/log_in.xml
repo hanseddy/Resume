@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -60,21 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/login_mdp_EditText"
-        app:layout_constraintVertical_bias="0.048" />
-
-    <TextView
-        android:id="@+id/login_inscription_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:fontFamily="@font/roboto_light"
-        android:text="@string/inscription"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/login_connex_Text"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.060000002" />
 
     <TextView
         android:id="@+id/login_mdpOublier_text"
@@ -84,11 +70,10 @@
         android:fontFamily="@font/roboto_light"
         android:text="@string/mdpOublier"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/login_inscription_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/login_inscription_text"
-        app:layout_constraintTop_toTopOf="@+id/login_inscription_text" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/login_connex_Text" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/login_fab_button"

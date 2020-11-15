@@ -20,7 +20,6 @@ public class log_inFragment extends Fragment {
     EditText login_mail_edit;
     EditText login_mdp_edit;
     FloatingActionButton login_fab_button  ; // connection button
-    TextView login_inscription_text;
     TextView login_mdpOublie_text;
 
     /*public interface  loginComBetweenFragAndActivity {
@@ -33,7 +32,6 @@ public class log_inFragment extends Fragment {
         login_fab_button = v.findViewById(R.id.login_fab_button);
         login_mail_edit = v.findViewById(R.id.login_mail_editText);
         login_mdp_edit = v.findViewById(R.id.login_mdp_EditText);
-        login_inscription_text = v.findViewById(R.id.login_inscription_text);
         login_mdpOublie_text =v.findViewById(R.id.login_mdpOublier_text);
         // handling floating action button
         login_fab_button.setOnClickListener(new View.OnClickListener() {
