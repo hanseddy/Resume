@@ -1,10 +1,13 @@
 package com.example.resume;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.text.Layout;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,8 +22,12 @@ public class MainActivity extends AppCompatActivity  {
     FloatingActionButton m_Google_fabButton;
     TabLayout m_auth_tablayout;
     ViewPager m_auth_viewpager;
+    Context m_fragmentContext;
     //login ui
     EditText m_login_mail_Edit ;
+    FragmentManager fragmentmanager;
+    log_inFragment m_loginFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +45,8 @@ public class MainActivity extends AppCompatActivity  {
         /******************* end of tablayout setting **************/
         final authadapter adapter = new authadapter(getSupportFragmentManager(),getApplicationContext(),m_auth_tablayout.getTabCount());
         m_auth_viewpager.setAdapter(adapter);
-
+        //m_fragmentContext = m_auth_viewpager.
+        //m_loginFragment = (log_inFragment) fragmentmanager.findFragmentById(R.id.login_fragment);
 
         //tablayout onclick listener
         tablistener();
