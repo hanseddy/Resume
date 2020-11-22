@@ -1,22 +1,24 @@
 package com.example.resume;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.ViewPager;
-
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Layout;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import DataCommunication.AuthViewmodel;
 import authentif.log_inFragment;
 
 public class MainActivity extends AppCompatActivity  {
-    final String TAG= "AuthentificationActivity";
     // initialization of views
     FloatingActionButton m_Fb_fabButton;
     FloatingActionButton m_Google_fabButton;
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity  {
     EditText m_login_mail_Edit ;
     FragmentManager fragmentmanager;
     log_inFragment m_loginFragment;
-
+    AuthViewmodel viewmodel;
+    String m_Name,m_mail,m_Mdp1,m_Mdp2; // var signIn
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +48,28 @@ public class MainActivity extends AppCompatActivity  {
         /******************* end of tablayout setting **************/
         final authadapter adapter = new authadapter(getSupportFragmentManager(),getApplicationContext(),m_auth_tablayout.getTabCount());
         m_auth_viewpager.setAdapter(adapter);
-        //m_fragmentContext = m_auth_viewpager.
-        //m_loginFragment = (log_inFragment) fragmentmanager.findFragmentById(R.id.login_fragment);
 
-        //tablayout onclick listener
-        tablistener();
+        tablistener(); //tablayout onclick listener
+
+        /***************communication using viewmodel and livedata******************/
+        viewmodel = new ViewModelProvider(this).get(AuthViewmodel.class);
+        viewmodel.init(); //initialisation of data
+        // if fb FAB button is clicked set data by calling settings service
+
+        UpdateSignInData();  // update data from signIn fragment
+
+
+        /*************** End of communication using viewmodel and livedata******************/
+
         /******************* firebase authentification**************/
         //log_inFragment log_inFragment =(log_inFragment)getFragmentManager().findFragmentById(R.id.login_fragment);
     }
-    /*******************tablayout clickListener***************/
-    //function: listen the button press of tablayout child and set the fragment to inflate
-    // In: void
-    // Out: void
+
+    /*******************tablayout clickListener**************
+     * In: void
+     * Out: void
+     * Description: listen the button press of tablayout child and set the fragment to inflate*/
+
     private void tablistener() {
         m_auth_tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -76,9 +89,44 @@ public class MainActivity extends AppCompatActivity  {
         });
     }
 
-
     /******* end of tablistener method************/
 
+
+    /******* Update data from signIn Fragment ***********
+     * In: void
+     * Out: void
+     * Description: updates data needed for Firebase SignIn */
+    public void UpdateSignInData(){
+        //Get Name data from fragment SignIn through viewmodel and livedata
+        viewmodel.getSigninName().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                m_Name = s;
+            }
+        });
+        //Get mail data from fragment SignIn through viewmodel and livedata
+        viewmodel.getSigninMail().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                m_mail = s;
+            }
+        });
+        //Get Mdp1 data from fragment SignIn through viewmodel and livedata
+        viewmodel.getSigninMdp1().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                m_Mdp1= s;
+            }
+        });
+        //Get Mdp2 data from fragment SignIn through viewmodel and livedata
+        viewmodel.getSigninMdp2().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                m_Mdp2= s;
+            }
+        });
+    }
+   /******* End of data update from signIn Fragment ***********/
 
 
 }

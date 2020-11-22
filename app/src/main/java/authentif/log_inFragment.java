@@ -2,6 +2,7 @@ package authentif;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,15 @@ import androidx.fragment.app.Fragment;
 import com.example.resume.R;
 import com.example.resume.databinding.LogInBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class log_inFragment extends Fragment {
-    loginComBetweenFragAndActivity loginViewListener;
+   /* loginComBetweenFragAndActivity loginViewListener;
     EditText login_mail_edit;
     EditText login_mdp_edit;
     FloatingActionButton login_fab_button  ; // connection button
-    TextView login_mdpOublie_text;
+    TextView login_mdpOublie_text;*/
+    //private FirebaseAuth mAuth; //firebase instance
     LogInBinding logInBinding;
     public interface  loginComBetweenFragAndActivity {
         void getloginView(CharSequence loginMail,CharSequence loginMdp);
@@ -34,11 +37,12 @@ public class log_inFragment extends Fragment {
 
         logInBinding = LogInBinding.inflate(inflater, container, false);
         View view = logInBinding.getRoot();
-
+        final Editable mail = logInBinding.loginMailEditText.getText();
+        // handling floating action button
         logInBinding.loginFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"ca marche",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"le mail est "+mail,Toast.LENGTH_LONG).show();
             }
         });
 
@@ -46,16 +50,6 @@ public class log_inFragment extends Fragment {
         login_mail_edit = v.findViewById(R.id.login_mail_editText);
         login_mdp_edit = v.findViewById(R.id.login_mdp_EditText);
         login_mdpOublie_text = v.findViewById(R.id.login_mdpOublier_text);*/
-
-        // handling floating action button
-        /*login_fab_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CharSequence mail= login_mail_edit.getText();
-                CharSequence mdp= login_mdp_edit.getText();
-                loginViewListener.getloginView(mail,mdp);
-            }
-        });*/
         return view;
         //return v;
     }
