@@ -69,7 +69,7 @@ public class sign_inFragment extends Fragment {
                 Signviemodel.SetSigninName(Name);
                 Signviemodel.SetSigninMail(Mail);
                 Signviemodel.SetSigninMdp1(Mdp1);
-                Signviemodel.SetSigninMdp2(Mdp2);
+                //Signviemodel.SetSigninMdp2(Mdp2);
 
             } else {       //psw not the same
                 Toast.makeText(getContext(), "psw are not the same", Toast.LENGTH_SHORT).show();

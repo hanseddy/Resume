@@ -10,14 +10,20 @@ public class AuthViewmodel extends ViewModel {
     MutableLiveData<String> Mail ;
     MutableLiveData<String> Mdp1 ;
     MutableLiveData<String> Mdp2 ;
-
+    /***************data managing Login******************/
+    MutableLiveData<String> loginMail ;
+    MutableLiveData<String> loginPsw ;
     public void init(){
+        // Signin
         Name= new MutableLiveData<String>();
         Mail= new MutableLiveData<String>();
         Mdp1= new MutableLiveData<String>();
         Mdp2= new MutableLiveData<String>();
+        //Login
+        loginMail=new MutableLiveData<String>();
+        loginPsw=new MutableLiveData<String>();
     }
-     /********** getter function **********/
+     /********** Sigin getter function **********/
     // getter Name
     public LiveData<String> getSigninName(){
         return Name;
@@ -34,7 +40,18 @@ public class AuthViewmodel extends ViewModel {
     public LiveData<String> getSigninMdp2(){
         return Mdp2;
     }
-    /********** setter function **********/
+
+    /********** Login getter function **********/
+    //getter loginMail
+    public LiveData<String> getLoginMail(){
+        return loginMail;
+    }
+    //getter loginPsw
+    public LiveData<String> getLoginPsw(){
+        return loginPsw;
+    }
+
+    /********** Signin setter function **********/
     // setter Name
     public void SetSigninName(String N){
         Name.setValue(N);
@@ -52,5 +69,13 @@ public class AuthViewmodel extends ViewModel {
         Mdp2.setValue(Mdp);
     }
 
-
+    /********** Login setter function **********/
+    // setter loginMail
+    public void SetLoginMail(String Mdp){
+        loginMail.setValue(Mdp);
+    }
+    // setter loginMail
+    public void SetLoginPsw(String Mdp){
+        loginPsw.setValue(Mdp);
+    }
 }

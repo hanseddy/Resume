@@ -26,11 +26,10 @@ public class MainActivity extends AppCompatActivity  {
     ViewPager m_auth_viewpager;
     Context m_fragmentContext;
     //login ui
-    EditText m_login_mail_Edit ;
     FragmentManager fragmentmanager;
     log_inFragment m_loginFragment;
     AuthViewmodel viewmodel;
-    String m_Name,m_mail,m_Mdp1,m_Mdp2; // var signIn
+    String m_Name,m_mail,m_Mdp1,m_Mdp2,m_loginMail, m_loginPsw; // data initialisation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity  {
         // if fb FAB button is clicked set data by calling settings service
 
         UpdateSignInData();  // update data from signIn fragment
-
 
         /*************** End of communication using viewmodel and livedata******************/
 
@@ -118,11 +116,18 @@ public class MainActivity extends AppCompatActivity  {
                 m_Mdp1= s;
             }
         });
-        //Get Mdp2 data from fragment SignIn through viewmodel and livedata
-        viewmodel.getSigninMdp2().observe(this, new Observer<String>() {
+        //Get loginMail data from fragment SignIn through viewmodel and livedata
+        viewmodel.getLoginMail().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                m_Mdp2= s;
+                m_loginMail= s;
+            }
+        });
+        //Get login password data from fragment SignIn through viewmodel and livedata
+        viewmodel.getLoginPsw().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                m_loginPsw= s;
             }
         });
     }
