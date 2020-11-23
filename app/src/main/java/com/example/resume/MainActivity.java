@@ -2,9 +2,6 @@ package com.example.resume;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -14,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 import DataCommunication.AuthViewmodel;
 import authentif.log_inFragment;
@@ -28,8 +26,11 @@ public class MainActivity extends AppCompatActivity  {
     //login ui
     FragmentManager fragmentmanager;
     log_inFragment m_loginFragment;
-    AuthViewmodel viewmodel;
+    AuthViewmodel viewmodel;  // viewmodel
     String m_Name,m_mail,m_Mdp1,m_Mdp2,m_loginMail, m_loginPsw; // data initialisation
+    /******Firebase Auth ********/
+    FirebaseAuth mAuth;
+    private int RC_SIGN_IN = 123;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity  {
 
         /******************* firebase authentification**************/
         //log_inFragment log_inFragment =(log_inFragment)getFragmentManager().findFragmentById(R.id.login_fragment);
+
     }
 
     /*******************tablayout clickListener**************

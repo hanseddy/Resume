@@ -1,7 +1,7 @@
 package authentif;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.resume.R;
-import com.example.resume.databinding.LogInBinding;
 import com.example.resume.databinding.SignInBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import DataCommunication.AuthViewmodel;
+import Homepage.HomePage;
 
 
 public class sign_inFragment extends Fragment {
@@ -46,6 +48,7 @@ public class sign_inFragment extends Fragment {
                 SetUpSignInData();
             }
         });
+        mAuth = FirebaseAuth.getInstance();
     }
 
     /********** Setting Up data **************/
@@ -62,14 +65,29 @@ public class sign_inFragment extends Fragment {
             Toast.makeText(getContext(), "all field need to be fill", Toast.LENGTH_SHORT).show();
             //Log.i("signFragment","sign field are empty");
         } else { // all the field are filled
-            //Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-            //Log.i("signFragment","sign field are full");
+
             if((isEqual(signInBinding.signinMdpEditText,signInBinding.signinMdp2EditText)) == true){  // password are the same
                 // sett up all the data if the button is pressed
                 Signviemodel.SetSigninName(Name);
                 Signviemodel.SetSigninMail(Mail);
                 Signviemodel.SetSigninMdp1(Mdp1);
                 //Signviemodel.SetSigninMdp2(Mdp2);
+
+                /********* Firebase mail and password Authentification *************/
+
+                mAuth.createUserWithEmailAndPassword(Mail,Mdp1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getContext(),"authentification succeed",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getContext(), HomePage.class));
+                            //progressBar.setVisibility(View.INVISIBLE);
+                        }
+                        else{  // la creation de compte failed
+                            Toast.makeText(getContext(),"authentification failed"+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
             } else {       //psw not the same
                 Toast.makeText(getContext(), "psw are not the same", Toast.LENGTH_SHORT).show();
