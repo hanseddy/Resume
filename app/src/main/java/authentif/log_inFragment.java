@@ -34,7 +34,7 @@ public class log_inFragment extends Fragment {
 
 
     public interface  loginComBetweenFragAndActivity {
-        void getloginView(CharSequence loginMail,CharSequence loginMdp);
+        public void MdpOublie(View view);  // onclick method of
     }
 
     @Nullable
@@ -69,7 +69,8 @@ public class log_inFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         logviewmodel = new ViewModelProvider(requireActivity()).get(AuthViewmodel.class);
         mAuth= FirebaseAuth.getInstance();
-        /// si on appuie sur le bouton on set up les donnée
+
+        // si on appuie sur le bouton on set up les donnée
         logInBinding.loginFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

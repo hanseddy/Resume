@@ -8,4 +8,8 @@
     <string name="bienvenu">BIENVENUE</string>
     <string name="ou">ou</string>
     <string name="name">Name</string>
+    <string name="forgotpsw">Did you forgot your password ?</string>
+    <string name="newpsw">New password</string>
+    <string name="sndPsw">send password</string>
+
 </resources>

@@ -126,7 +126,7 @@ public class sign_inFragment extends Fragment {
     // make a method to transform EditText into String
     public String EditToString(EditText edit){
         String word;
-        word = edit.getText().toString();
+        word = edit.getText().toString().trim();
         return word;
     }
 }

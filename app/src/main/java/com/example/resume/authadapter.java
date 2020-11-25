@@ -51,15 +51,4 @@ public class authadapter extends FragmentPagerAdapter  {
         return tabTitles[position];
     }
 
-    /*@Override
-    public void getloginView(CharSequence loginMail, CharSequence loginMdp) {
-        this.m_mail = loginMail;
-        this.m_mdp = loginMdp;
-    }
-    public CharSequence getLoginMail(){
-        return m_mail;
-    }
-    public CharSequence getLoginMdp(){
-        return m_mdp;
-    }*/
 }

@@ -1,7 +1,9 @@
 package com.example.resume;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -9,14 +11,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.resume.databinding.ActivityMainBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 import DataCommunication.AuthViewmodel;
+import authentif.ResetPassword;
 import authentif.log_inFragment;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements log_inFragment.loginComBetweenFragAndActivity {
     // initialization of views
     FloatingActionButton m_Fb_fabButton;
     FloatingActionButton m_Google_fabButton;
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity  {
     ViewPager m_auth_viewpager;
     Context m_fragmentContext;
     //login ui
+    ActivityMainBinding binding;
     FragmentManager fragmentmanager;
     log_inFragment m_loginFragment;
     AuthViewmodel viewmodel;  // viewmodel
@@ -31,10 +36,15 @@ public class MainActivity extends AppCompatActivity  {
     /******Firebase Auth ********/
     FirebaseAuth mAuth;
     private int RC_SIGN_IN = 123;
+    ResetPassword m_resetPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        //setContentView(R.layout.activity_main);
+
         /******************* setting up tablayout and viewpager**************/
         m_Fb_fabButton=findViewById(R.id.auth_FbFAB_button);
         m_Google_fabButton=findViewById(R.id.auth_googleFAB_button);
@@ -133,7 +143,14 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
-   /******* End of data update from signIn Fragment ***********/
+    /******* End of data update from signIn Fragment ***********/
+
+    @Override
+    public void MdpOublie(View view) {
+        //Toast.makeText(this, "j'ai oublier mon code", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this ,ResetPassword.class));
+    }
+
 
 
 }
