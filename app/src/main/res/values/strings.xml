@@ -11,5 +11,6 @@
     <string name="forgotpsw">Did you forgot your password ?</string>
     <string name="newpsw">New password</string>
     <string name="sndPsw">send password</string>
+    <string name="resume">RESUME</string>
 
 </resources>
