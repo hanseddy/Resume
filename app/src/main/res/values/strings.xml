@@ -12,5 +12,6 @@
     <string name="newpsw">New password</string>
     <string name="sndPsw">send password</string>
     <string name="resume">RESUME</string>
+    <string name="Logout">Logout</string>
 
 </resources>
