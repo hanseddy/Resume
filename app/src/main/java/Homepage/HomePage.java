@@ -10,10 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.resume.MainActivity;
 import com.example.resume.R;
 import com.example.resume.databinding.HomePageBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,6 +24,7 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
 HomePageBinding binding;
 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 String UID = null;
+BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +39,12 @@ String UID = null;
             Log.i("HomePage","no loggin user ");
         }
 
-        binding.HomeAddPlusButton.setOnClickListener(new View.OnClickListener() {
+       /* binding.HomeAddPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomePage.this, UID , Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
      /*   binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +53,9 @@ String UID = null;
                 startActivity(new Intent(HomePage.this, MainActivity.class));
             }
         });*/
+     bottomNavigationView=binding.bottomNavigationView;
+        NavHostFragment navHostFragment= (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        NavigationUI.setupWithNavController(bottomNavigationView,navHostFragment.getNavController());
     }
     public void menuClicked(View v){
         //Toast.makeText(this, "menu is clicked", Toast.LENGTH_SHORT).show();
