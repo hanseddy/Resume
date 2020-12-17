@@ -1,5 +1,6 @@
 package DataCommunication;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -8,6 +9,7 @@ public class DataViewmodel extends ViewModel {
 
     MutableLiveData<String> UID ;
     MutableLiveData<String> NAME ;
+    MutableLiveData<String> BOOK ;
     MutableLiveData<String> NBBOOK ;
     MutableLiveData<String> NBCHAP ;
     MutableLiveData<String> CHAPTER ;
@@ -17,59 +19,70 @@ public class DataViewmodel extends ViewModel {
     public void init(){
         UID= new MutableLiveData<String>();
         NAME= new MutableLiveData<String>();
+        BOOK = new MutableLiveData<String>();
         NBBOOK= new MutableLiveData<String>();
         NBCHAP= new MutableLiveData<String>();
         CHAPTER=new MutableLiveData<String>();
         DESCRIPTION=new MutableLiveData<String>();
     }
-    /***************LIVEDATA SETTER*******************/
-    public void setUID(MutableLiveData<String> UID) {
-        this.UID = UID;
-    }
 
-    public void setNAME(MutableLiveData<String> NAME) {
-        this.NAME = NAME;
-    }
-
-    public void setNBBOOK(MutableLiveData<String> NBBOOK) {
-        this.NBBOOK = NBBOOK;
-    }
-
-    public void setNBCHAP(MutableLiveData<String> NBCHAP) {
-        this.NBCHAP = NBCHAP;
-    }
-
-    public void setCHAPTER(MutableLiveData<String> CHAPTER) {
-        this.CHAPTER = CHAPTER;
-    }
-
-    public void setDESCRIPTION(MutableLiveData<String> DESCRIPTION) {
-        this.DESCRIPTION = DESCRIPTION;
-    }
 
     /***************LIVEDATA GETTER*******************/
-    public MutableLiveData<String> getUID() {
+    public LiveData<String> getUID() {
         return UID;
     }
 
-    public MutableLiveData<String> getNAME() {
+    public LiveData<String> getBOOK() {
+        return BOOK;
+    }
+
+    public LiveData<String> getNAME() {
         return NAME;
     }
 
-    public MutableLiveData<String> getNBBOOK() {
+    public LiveData<String> getNBBOOK() {
         return NBBOOK;
     }
 
-    public MutableLiveData<String> getNBCHAP() {
+    public LiveData<String> getNBCHAP() {
         return NBCHAP;
     }
 
-    public MutableLiveData<String> getCHAPTER() {
+    public LiveData<String> getCHAPTER() {
         return CHAPTER;
     }
 
-    public MutableLiveData<String> getDESCRIPTION() {
+    public LiveData<String> getDESCRIPTION() {
         return DESCRIPTION;
+    }
+
+
+    /***************LIVEDATA SETTER*******************/
+    public void setUID(String uid) {
+        UID.setValue(uid);
+    }
+
+    public void setNAME(String name) {
+        NAME.setValue(name);
+    }
+    public void setBOOK(String book) {
+        BOOK.setValue(book);
+    }
+
+    public void setNBBOOK(String NbBook) {
+        NBBOOK.setValue(NbBook);
+    }
+
+    public void setNBCHAP(String NbChap) {
+        NBCHAP.setValue(NbChap);
+    }
+
+    public void setCHAPTER(String Chapter) {
+        CHAPTER.setValue(Chapter);
+    }
+
+    public void setDESCRIPTION(String Description) {
+        DESCRIPTION.setValue(Description);
     }
 
 }

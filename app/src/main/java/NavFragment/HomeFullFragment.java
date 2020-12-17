@@ -4,10 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.resume.R;
+import com.example.resume.databinding.HomePageBinding;
+
+import DataCommunication.DataViewmodel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,7 +23,8 @@ import com.example.resume.R;
  * create an instance of this fragment.
  */
 public class HomeFullFragment extends Fragment {
-
+private HomePageBinding binding;
+TextView text;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,6 +56,7 @@ public class HomeFullFragment extends Fragment {
         return fragment;
     }
 
+    DataViewmodel DataModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +69,22 @@ public class HomeFullFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_full, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        text = view.findViewById(R.id.mot);
+        // test viewdata model
+        DataModel = new ViewModelProvider(requireActivity()).get(DataViewmodel.class);
+        DataModel.getNAME().observe(this,new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                text.setText(s);
+            }
+        });
+        // Inflate the layout for this fragment
+
     }
 }

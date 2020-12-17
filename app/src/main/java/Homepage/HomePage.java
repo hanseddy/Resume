@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -29,14 +30,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import DataCommunication.DataViewmodel;
 import model.UserData;
 
 public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
-HomePageBinding binding;
-FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-String UID = null;
-BottomNavigationView bottomNavigationView;
-DatabaseReference RootRef;  // firebase
+    DataViewmodel DataModel; // data model
+    HomePageBinding binding;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String UID = null;
+    BottomNavigationView bottomNavigationView;
+    DatabaseReference RootRef;  // firebase
     Map<String,String> UserData =new HashMap<String, String>();// instantiate Map
     model.UserData  FirebaseData = new UserData(UserData);
     private String TAG= "Homepage";
@@ -86,17 +89,21 @@ DatabaseReference RootRef;  // firebase
     @Override
     protected void onStart() {
         super.onStart();
-        /*** on check si dans la base de donné l'uid exist
+        /*** on check si dans la base de donnée l'uid exist
          *                - NON = on cree une base de donné pour la l'utilisateur et on initialise tout à 0
          *                - OUI = on check si le nombre de livre est inferieur ou egale a 0
          *                         -> OUI:
          *                         -> NON: on inflate la page home full.
          */
+        // Get the ViewModel.
+        DataModel = new ViewModelProvider(this).get(DataViewmodel.class);   //instantiate and get the viewmodel
+
         DatabaseReference UserUI = RootRef.child(UID);
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 postUserData = dataSnapshot.getValue(UserData.class);
+
                 if(!dataSnapshot.exists()) {  // si UID n'existe pas
                     FirebaseData.PopulateDataBase(UserData,"0",0,0,"0","0","0");// on cree une nouvelle base de donné avec la nouvelle
                     //inflate home empty
@@ -104,6 +111,8 @@ DatabaseReference RootRef;  // firebase
                     Navigation.findNavController(HomePage.this,R.id.fragment).navigate(R.id.homeFullFragment);//inflate home full
                     //navHostFragment.findNavController(this).navigate(R.id.homeFullFragment);
                 }
+                /*****************setting up of livedata of viewmodel *****************/
+                updateLivedataWithRTData(DataModel,postUserData);  // update data in realtime database to a livedata viewmodel
             }
 
             @Override
@@ -113,4 +122,17 @@ DatabaseReference RootRef;  // firebase
         };
         UserUI.addListenerForSingleValueEvent(eventListener);
     }
+
+    public void updateLivedataWithRTData(DataViewmodel livedata,UserData RTdata){
+        livedata.init();
+        livedata.setUID(UID);
+        livedata.setBOOK(RTdata.DATA.get("Book_1"));
+        livedata.setNAME(RTdata.DATA.get("Name"));
+        livedata.setNBBOOK(RTdata.DATA.get("NbBook"));
+        livedata.setNBCHAP(RTdata.DATA.get("NbChap"));
+        livedata.setCHAPTER(RTdata.DATA.get("Chap1-1"));
+        livedata.setDESCRIPTION(RTdata.DATA.get("Description"));
+    }
+
+
 }
