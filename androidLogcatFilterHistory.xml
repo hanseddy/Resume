@@ -1,8 +1,9 @@
 <application>
   <component name="AndroidLogcatFilterHistory">
-    <option name="mostRecentlyUsed" value="MyTag" />
+    <option name="mostRecentlyUsed" value="package:mine 1stCoroutine" />
     <option name="nonFavorites">
       <list>
+        <option value="package:mine 1stCoroutine" />
         <option value="MyTag" />
         <option value="log.I" />
       </list>
