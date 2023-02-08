@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="Project 'PerformanceTracker'" />
-    <option name="defaultScopeName" value="Project 'PerformanceTracker'" />
-    <option name="SEARCH_SCOPE" value="Project 'PerformanceTracker'" />
+    <option name="customScope" value="Project 'roomCodeChallenge'" />
+    <option name="defaultScopeName" value="Project 'roomCodeChallenge'" />
+    <option name="SEARCH_SCOPE" value="Project 'roomCodeChallenge'" />
   </component>
 </application>
