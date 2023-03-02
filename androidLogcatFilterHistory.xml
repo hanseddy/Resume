@@ -1,8 +1,9 @@
 <application>
   <component name="AndroidLogcatFilterHistory">
-    <option name="mostRecentlyUsed" value="MovieTag" />
+    <option name="mostRecentlyUsed" value="MYTAG" />
     <option name="nonFavorites">
       <list>
+        <option value="MYTAG" />
         <option value="MovieTag" />
         <option value="Mytag" />
         <option value="MyTag" />
