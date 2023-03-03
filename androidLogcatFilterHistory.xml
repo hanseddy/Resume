@@ -3,10 +3,10 @@
     <option name="mostRecentlyUsed" value="MovieTag" />
     <option name="nonFavorites">
       <list>
+        <option value="MYTAG" />
         <option value="MovieTag" />
         <option value="Movie" />
         <option value="Movi" />
-        <option value="MYTAG" />
         <option value="Mytag" />
         <option value="MyTag" />
         <option value="viewmodel" />
