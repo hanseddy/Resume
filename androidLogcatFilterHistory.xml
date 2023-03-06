@@ -9,6 +9,7 @@
     <option name="nonFavorites">
       <list>
         <option value="weather" />
+        <option value="package:mine" />
         <option value="Mytag" />
         <option value="MovieTag" />
         <option value="Movie" />
@@ -16,7 +17,6 @@
         <option value="MyTag" />
         <option value="viewmodel" />
         <option value="diditag" />
-        <option value="package:mine" />
         <option value="tag" />
         <option value="package:mine 1stCoroutine" />
         <option value="log.I" />
