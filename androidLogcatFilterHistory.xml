@@ -9,6 +9,7 @@
     <option name="nonFavorites">
       <list>
         <option value="weather" />
+        <option value="I" />
         <option value="package:mine" />
         <option value="Mytag" />
         <option value="MovieTag" />
