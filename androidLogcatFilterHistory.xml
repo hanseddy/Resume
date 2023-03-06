@@ -5,9 +5,10 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="MYTAG" />
+    <option name="mostRecentlyUsed" value="weather" />
     <option name="nonFavorites">
       <list>
+        <option value="weather" />
         <option value="Mytag" />
         <option value="MovieTag" />
         <option value="Movie" />
