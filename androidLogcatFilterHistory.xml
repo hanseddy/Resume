@@ -5,9 +5,14 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="weather" />
+    <option name="mostRecentlyUsed" value="WEATHER" />
     <option name="nonFavorites">
       <list>
+        <option value="WEATHER" />
+        <option value="humidity" />
+        <option value="humidit" />
+        <option value="hu" />
+        <option value="humi" />
         <option value="weather" />
         <option value="I" />
         <option value="package:mine" />
