@@ -5,9 +5,10 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="humidity" />
+    <option name="mostRecentlyUsed" value="ICON" />
     <option name="nonFavorites">
       <list>
+        <option value="ICON" />
         <option value="humidity" />
         <option value="WEATHER" />
         <option value="humidit" />
