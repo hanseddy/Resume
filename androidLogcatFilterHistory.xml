@@ -5,9 +5,10 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="TEMP" />
+    <option name="mostRecentlyUsed" value="RESPONSESIZE" />
     <option name="nonFavorites">
       <list>
+        <option value="RESPONSESIZE" />
         <option value="TEMP" />
         <option value="ICON" />
         <option value="humidity" />
@@ -27,7 +28,6 @@
         <option value="diditag" />
         <option value="tag" />
         <option value="package:mine 1stCoroutine" />
-        <option value="log.I" />
       </list>
     </option>
   </component>
