@@ -5,9 +5,10 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="WEATHER" />
+    <option name="mostRecentlyUsed" value="mytag" />
     <option name="nonFavorites">
       <list>
+        <option value="mytag" />
         <option value="WEATHER" />
         <option value="RESPONSESIZE" />
         <option value="TEMP" />
@@ -27,7 +28,6 @@
         <option value="viewmodel" />
         <option value="diditag" />
         <option value="tag" />
-        <option value="package:mine 1stCoroutine" />
       </list>
     </option>
   </component>
