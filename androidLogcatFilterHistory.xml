@@ -5,14 +5,14 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="RESPONSESIZE" />
+    <option name="mostRecentlyUsed" value="WEATHER" />
     <option name="nonFavorites">
       <list>
+        <option value="WEATHER" />
         <option value="RESPONSESIZE" />
         <option value="TEMP" />
         <option value="ICON" />
         <option value="humidity" />
-        <option value="WEATHER" />
         <option value="humidit" />
         <option value="hu" />
         <option value="humi" />
