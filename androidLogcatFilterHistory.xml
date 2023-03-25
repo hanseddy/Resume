@@ -5,13 +5,13 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="notification" />
+    <option name="mostRecentlyUsed" value="RESPONSESIZE" />
     <option name="nonFavorites">
       <list>
+        <option value="RESPONSESIZE" />
         <option value="notification" />
         <option value="mytag" />
         <option value="WEATHER" />
-        <option value="RESPONSESIZE" />
         <option value="TEMP" />
         <option value="ICON" />
         <option value="humidity" />
