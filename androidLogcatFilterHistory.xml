@@ -5,9 +5,10 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="RESPONSESIZE" />
+    <option name="mostRecentlyUsed" value="weatherIntent" />
     <option name="nonFavorites">
       <list>
+        <option value="weatherIntent" />
         <option value="RESPONSESIZE" />
         <option value="notification" />
         <option value="mytag" />
@@ -27,7 +28,6 @@
         <option value="Movi" />
         <option value="MyTag" />
         <option value="viewmodel" />
-        <option value="diditag" />
       </list>
     </option>
   </component>
