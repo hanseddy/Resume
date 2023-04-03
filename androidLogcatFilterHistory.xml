@@ -5,9 +5,11 @@
         <option value="MYTAG" />
       </list>
     </option>
-    <option name="mostRecentlyUsed" value="weatherIntent" />
+    <option name="mostRecentlyUsed" value="tag" />
     <option name="nonFavorites">
       <list>
+        <option value="tag" />
+        <option value="package:mineta" />
         <option value="weatherIntent" />
         <option value="RESPONSESIZE" />
         <option value="notification" />
@@ -26,8 +28,6 @@
         <option value="MovieTag" />
         <option value="Movie" />
         <option value="Movi" />
-        <option value="MyTag" />
-        <option value="viewmodel" />
       </list>
     </option>
   </component>
