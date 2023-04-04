@@ -1,0 +1,5 @@
+<application>
+  <component name="ee.carlrobert.codegpt.state.conversations.ConversationsState">
+    <option name="conversationsContainer" value="{&quot;conversationsMapping&quot;:{}}" />
+  </component>
+</application>
