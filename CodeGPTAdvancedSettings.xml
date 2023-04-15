@@ -1,0 +1,7 @@
+<application>
+  <component name="ee.carlrobert.codegpt.state.settings.advanced.AdvancedSettingsState">
+    <option name="isProxyAuthSelected" value="true" />
+    <option name="proxyUsername" value="" />
+    <option name="proxyPassword" value="" />
+  </component>
+</application>
