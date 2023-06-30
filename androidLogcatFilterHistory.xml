@@ -4,6 +4,7 @@
     <option name="nonFavorites">
       <list>
         <option value="LOGIN" />
+        <option value="LOGGIN" />
         <option value="MYTAG" />
         <option value="notif" />
         <option value="weatherIntent" />
@@ -22,7 +23,6 @@
         <option value="weather" />
         <option value="I" />
         <option value="package:mine" />
-        <option value="Mytag" />
       </list>
     </option>
   </component>
