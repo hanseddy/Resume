@@ -1,8 +1,9 @@
 <application>
   <component name="AndroidLogcatFilterHistory">
-    <option name="mostRecentlyUsed" value="TIMER" />
+    <option name="mostRecentlyUsed" value="SAVE_DATA_TO_REMOTE" />
     <option name="nonFavorites">
       <list>
+        <option value="SAVE_DATA_TO_REMOTE" />
         <option value="TIMER" />
         <option value="LOGIN" />
         <option value="LOGGIN" />
@@ -22,7 +23,6 @@
         <option value="hu" />
         <option value="humi" />
         <option value="weather" />
-        <option value="I" />
       </list>
     </option>
   </component>
